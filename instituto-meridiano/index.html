@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instituto Meridiano // Ensino Superior, Pesquisa Pura & Pensamento Contemporâneo</title>
+  <meta name="description" content="Faculdade interdisciplinar construída na confluência entre computação avançada, design estratégico, ecologias complexas e pensamento humanístico rigoroso. São Paulo, Brasil.">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23070708'/><circle cx='50' cy='50' r='32' stroke='%2300ff9d' stroke-width='8' fill='none'/><line x1='50' y1='10' x2='50' y2='90' stroke='%2300ff9d' stroke-width='4'/></svg>">
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Skip link para acessibilidade WCAG -->
+  <a href="#main-content" class="skip-to-content">Pular para o conteúdo principal</a>
+
+  <!-- Custom Cursor Dual-layer -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true">
+    <span class="cursor-label"></span>
+  </div>
+
+  <!-- Preloader Editorial -->
+  <div id="preloader">
+    <div class="preloader-header">
+      <span>INSTITUTO MERIDIANO // SP-BR</span>
+      <span>ED. 2027 // PROTOCOLO DE ACESSO</span>
+    </div>
+    <div class="preloader-counter">
+      <span id="preloader-percent">00%</span>
+    </div>
+    <div class="preloader-footer">
+      <span id="preloader-status">[ INICIALIZANDO AMBIENTE INSTITUCIONAL ]</span>
+    </div>
+  </div>
+
+  <!-- Header Institucional -->
+  <header class="site-header">
+    <div class="brand-lockup">
+      <a href="#" class="brand-name" data-magnetic>INSTITUTO MERIDIANO</a>
+      <span class="brand-badge">IM//27</span>
+    </div>
+
+    <div class="header-center-info">
+      <span class="pulse-indicator"></span>
+      <span id="live-timecode">SÃO PAULO 00:00:00 BRT</span>
+      <span>•</span>
+      <span>LAT 23°32'S 46°38'W</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#espacos" data-magnetic>01 // Espaços</a>
+      <a href="#escolas" data-magnetic>02 // Cátedras</a>
+      <a href="#laboratorio" data-magnetic>03 // Pesquisa</a>
+      <a href="#docentes" data-magnetic>04 // Fellows</a>
+      <a href="#admissoes" data-magnetic>05 // Admissão</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="sound-toggle-btn" class="sound-toggle-btn active" title="Alternar áudio procedural" data-magnetic>
+        ÁUDIO: <span class="sound-status">ON</span>
+      </button>
+      <button class="btn-header-cta btn-open-admissions" data-magnetic>
+        CANDIDATURA 2027
+      </button>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content">
+
+    <!-- HERO SECTION COM CARD 3D VISUAL -->
+    <section class="section-hero" id="topo">
+      <div class="hero-left-content">
+        <div class="hero-meta-tag hero-reveal">
+          <span class="pulse-indicator"></span>
+          <span>EST. 2024 // ENSINO SUPERIOR & PESQUISA PURA</span>
+        </div>
+
+        <h1 class="hero-display-title hero-reveal">
+          Formamos o intelecto que projeta as <span class="italic-accent">próximas civilizações.</span>
+        </h1>
+
+        <p class="hero-lead-text hero-reveal">
+          Interseção de alta intensidade entre computação sintética, design estratégico, ecologias vivas e filosofia crítica.
+        </p>
+
+        <div class="hero-cta-group hero-reveal">
+          <a href="#espacos" class="btn-secondary-hero" data-magnetic data-cursor-label="VER">
+            EXPLORAR ESPAÇOS ↓
+          </a>
+          <button class="btn-primary-hero btn-open-admissions" data-magnetic data-cursor-label="INGRESSO">
+            INICIAR CANDIDATURA <span>→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3D Fotográfico no Hero -->
+      <div class="hero-3d-visual hero-reveal">
+        <div class="hero-card-3d tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="hero-card-badge pop-z-50">
+            ● ESTUDO SILENCIOSO // CAMPUS CENTRAL
+          </div>
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="Estudantes no Instituto Meridiano" class="card-3d-img" loading="eager">
+          </div>
+          <div class="hero-card-caption pop-z-35">
+            <h3 class="hero-card-title">A Grande Biblioteca Noturna</h3>
+            <p class="hero-card-sub">Acesso irrestrito 24h a acervos raros, manuscritos e terminais de alta performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS SECTION -->
+    <section class="section-metrics">
+      <div class="metric-cell">
+        <div class="metric-number">07:01</div>
+        <div>
+          <div class="metric-label">Membro / Docente</div>
+          <p class="metric-desc">Orientação tutorial direta em colóquios restritos.</p>
+        </div>
+      </div>
+
+      <div class="metric-cell">
+        <div class="metric-number">42%</div>
+        <div>
+          <div class="metric-label">Bolsas Integrais</div>
+          <p class="metric-desc">Fundo patrimonial independente sem fins lucrativos.</p>
+        </div>
+      </div>
+
+      <div class="metric-cell">
+        <div class="metric-number">100%</div>
+        <div>
+          <div class="metric-label">Ciência Aberta</div>
+          <p class="metric-desc">Todo código, artigo e patente é bem público global.</p>
+        </div>
+      </div>
+
+      <div class="metric-cell">
+        <div class="metric-number">04</div>
+        <div>
+          <div class="metric-label">Cátedras de Vanguarda</div>
+          <p class="metric-desc">Computação autônoma, futuros, ecologia e ontologia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA 3D // AMBIENTES DE IMERSÃO & ESTUDO -->
+    <section class="section-study-gallery" id="espacos">
+      <div class="section-title-lockup">
+        <div>
+          <div class="section-tag">01 // ESPAÇOS DE IMERSÃO</div>
+          <h2 class="section-heading-h2">Onde o silêncio e o rigor ganham forma.</h2>
+        </div>
+      </div>
+
+      <div class="study-gallery-grid">
+
+        <!-- Espaço 01 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80" alt="Biblioteca Noturna" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">SANCTUÁRIO SILENCIOSO</div>
+            <h3 class="study-space-title">Acervo & Pesquisa Noturna</h3>
+            <p class="study-space-desc">40.000 volumes físicos e arquivos digitais em ambiente termicamente calibrado.</p>
+          </div>
+        </article>
+
+        <!-- Espaço 02 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80" alt="Laboratório de Computação Autônoma" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">COMPUTAÇÃO AVANÇADA</div>
+            <h3 class="study-space-title">Estações de Modelagem Neural</h3>
+            <p class="study-space-desc">Clusters dedicados para treinamento de arquiteturas generativas e agentes autônomos.</p>
+          </div>
+        </article>
+
+        <!-- Espaço 03 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80" alt="Ateliê de Fabricação" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">PROTOTIPAGEM MATERIAL</div>
+            <h3 class="study-space-title">Ateliê de Biomateriais & Robótica</h3>
+            <p class="study-space-desc">Cultivo de micélio, braços robóticos industriais e usinagem CNC de precisão.</p>
+          </div>
+        </article>
+
+        <!-- Espaço 04 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" alt="Anfiteatro Socrático" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">COLÓQUIOS & DIALÉTICA</div>
+            <h3 class="study-space-title">Anfiteatro Socrático</h3>
+            <p class="study-space-desc">Seminários de defesa de hipóteses sem slides: apenas o debate rigoroso de ideias.</p>
+          </div>
+        </article>
+
+        <!-- Espaço 05 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80" alt="Cápsulas de Foco" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">CONCENTRAÇÃO PROFUNDA</div>
+            <h3 class="study-space-title">Cápsulas Monásticas de Estudo</h3>
+            <p class="study-space-desc">Isolamento acústico absoluto de 45dB para escrita de teses e desenvolvimento puro.</p>
+          </div>
+        </article>
+
+        <!-- Espaço 06 -->
+        <article class="study-space-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=80" alt="Pavilhão Bioclimático" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="study-space-tag">ARQUITETURA VIVA</div>
+            <h3 class="study-space-title">Pavilhão & Terraço de Leitura</h3>
+            <p class="study-space-desc">Iluminação zenital natural e integração paisagística com espécies da Mata Atlântica.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- AS QUATRO ESCOLAS / CÁTEDRAS (COM FOTOS 3D) -->
+    <section class="section-schools" id="escolas">
+      <div class="section-title-lockup">
+        <div>
+          <div class="section-tag">02 // ESTRUTURA ACADÊMICA</div>
+          <h2 class="section-heading-h2">Quatro eixos de intervenção planetária.</h2>
+        </div>
+
+        <div class="school-filters">
+          <button class="school-filter-btn active" data-filter="all">Todas</button>
+          <button class="school-filter-btn" data-filter="computacao">Computação & IA</button>
+          <button class="school-filter-btn" data-filter="design">Design & Futuros</button>
+          <button class="school-filter-btn" data-filter="arquitetura">Arquitetura</button>
+          <button class="school-filter-btn" data-filter="filosofia">Filosofia</button>
+        </div>
+      </div>
+
+      <div class="schools-grid">
+
+        <!-- Cátedra 01 -->
+        <article class="school-card school-card-3d-layout" data-category="computacao" data-cursor="card">
+          <div class="tilt-3d-wrap" data-tilt-3d>
+            <div class="card-3d-media">
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80" alt="Computação Criativa" class="card-3d-img" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <div class="school-card-header">
+              <span class="school-code-badge">FACULDADE 01 // CC-AI</span>
+              <span class="school-duration">Bacharelado • 4 Anos</span>
+            </div>
+            <h3 class="school-title">Computação Criativa & Inteligência Sintética</h3>
+            <p class="school-ementa-summary">
+              Investigamos a máquina como extensão da cognição humana: modelos fundacionais, compiladores autônomos e álgebra tensorial aplicada à inteligência artificial.
+            </p>
+            <div class="school-topics-list">
+              <span class="topic-pill">Modelos Fundacionais</span>
+              <span class="topic-pill">Engenharia Neuromórfica</span>
+              <span class="topic-pill">Álgebra Tensorial</span>
+              <span class="topic-pill">Ética Algorítmica</span>
+            </div>
+            <div class="school-card-actions">
+              <button class="toggle-ementa-btn" data-magnetic>
+                VER EMENTA DETALHADA <span>+</span>
+              </button>
+              <button class="btn-header-cta btn-open-admissions" data-magnetic>
+                INSCREVER-SE
+              </button>
+            </div>
+          </div>
+          <!-- Detalhes Expandidos da Ementa -->
+          <div class="school-extended-details">
+            <div class="semestre-block">
+              <h4>Semestres 01 e 02</h4>
+              <ul>
+                <li>Teoria da Computação & Autômatos</li>
+                <li>Estruturas Avançadas em Rust</li>
+                <li>Cálculo Multivariável & Otimização</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Semestres 03 a 06</h4>
+              <ul>
+                <li>Deep Learning & Redes Generativas</li>
+                <li>Neurociência Computacional</li>
+                <li>Computação Quântica Experimental</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Semestres 07 e 08</h4>
+              <ul>
+                <li>Residência no Meridiano Lab</li>
+                <li>Desenvolvimento de Kernel Autônomo</li>
+                <li>Defesa Pública Internacional</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cátedra 02 -->
+        <article class="school-card school-card-3d-layout" data-category="design" data-cursor="card">
+          <div class="tilt-3d-wrap" data-tilt-3d>
+            <div class="card-3d-media">
+              <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80" alt="Design Estratégico" class="card-3d-img" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <div class="school-card-header">
+              <span class="school-code-badge">FACULDADE 02 // DS-FE</span>
+              <span class="school-duration">Bacharelado • 4 Anos</span>
+            </div>
+            <h3 class="school-title">Design Estratégico & Futuros Especulativos</h3>
+            <p class="school-ementa-summary">
+              O design como decisão material em sistemas complexos. Da concepção de interfaces planetárias à modelagem de políticas públicas orientadas a dados e estética de vanguarda.
+            </p>
+            <div class="school-topics-list">
+              <span class="topic-pill">Sistemas Planetários</span>
+              <span class="topic-pill">Tipografia Computacional</span>
+              <span class="topic-pill">Design Especulativo</span>
+              <span class="topic-pill">Experiência Imersiva WebGL</span>
+            </div>
+            <div class="school-card-actions">
+              <button class="toggle-ementa-btn" data-magnetic>
+                VER EMENTA DETALHADA <span>+</span>
+              </button>
+              <button class="btn-header-cta btn-open-admissions" data-magnetic>
+                INSCREVER-SE
+              </button>
+            </div>
+          </div>
+          <div class="school-extended-details">
+            <div class="semestre-block">
+              <h4>Ciclo de Percepção (Ano 1)</h4>
+              <ul>
+                <li>História Crítica do Design & Semiótica</li>
+                <li>Forma, Espaço & Grade Tipográfica</li>
+                <li>Prototipagem de Alta Fidelidade</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Ciclo de Sistemas (Anos 2 e 3)</h4>
+              <ul>
+                <li>Design de Políticas Públicas e Ecossistemas</li>
+                <li>Interatividade Espacial e Shaders</li>
+                <li>Design de Ficções e Artefatos Futuros</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Ciclo de Impacto (Ano 4)</h4>
+              <ul>
+                <li>Pavilhão de Conclusão Aberto ao Público</li>
+                <li>Dossiê Especulativo Publicado</li>
+                <li>Monografia e Código-Fonte Aberto</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cátedra 03 -->
+        <article class="school-card school-card-3d-layout" data-category="arquitetura" data-cursor="card">
+          <div class="tilt-3d-wrap" data-tilt-3d>
+            <div class="card-3d-media">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=80" alt="Arquitetura Viva" class="card-3d-img" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <div class="school-card-header">
+              <span class="school-code-badge">FACULDADE 03 // AR-EV</span>
+              <span class="school-duration">Graduação Plena • 5 Anos</span>
+            </div>
+            <h3 class="school-title">Arquitetura, Urbanismo & Ecologias Vivas</h3>
+            <p class="school-ementa-summary">
+              Nova práxis construtiva para o equilíbrio planetário: biomateriais cultivados, robótica de montagem e planejamento territorial bioclimático regenerativo.
+            </p>
+            <div class="school-topics-list">
+              <span class="topic-pill">Biomateriais e Micélio</span>
+              <span class="topic-pill">Fabricação Robótica</span>
+              <span class="topic-pill">Morfogênese Paramétrica</span>
+              <span class="topic-pill">Bacias Hidrográficas</span>
+            </div>
+            <div class="school-card-actions">
+              <button class="toggle-ementa-btn" data-magnetic>
+                VER EMENTA DETALHADA <span>+</span>
+              </button>
+              <button class="btn-header-cta btn-open-admissions" data-magnetic>
+                INSCREVER-SE
+              </button>
+            </div>
+          </div>
+          <div class="school-extended-details">
+            <div class="semestre-block">
+              <h4>Física & Biologia do Espaço (Ano 1-2)</h4>
+              <ul>
+                <li>Resistência dos Materiais & Biologia Sintética</li>
+                <li>Topografia Computacional & GIS</li>
+                <li>Ateliê de Fabricação Digital</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Ecologia Aplicada (Anos 3-4)</h4>
+              <ul>
+                <li>Design de Estruturas Autoportantes</li>
+                <li>Climatização Passiva e Energia Geotérmica</li>
+                <li>Laboratório de Biomateriais Cultivados</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Projeto de Escala Real (Ano 5)</h4>
+              <ul>
+                <li>Construção de Protótipo 1:1 no Campus</li>
+                <li>Plano Diretor Regenerativo Municipal</li>
+                <li>Defesa de Obra e Licenciamento Aberto</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cátedra 04 -->
+        <article class="school-card school-card-3d-layout" data-category="filosofia" data-cursor="card">
+          <div class="tilt-3d-wrap" data-tilt-3d>
+            <div class="card-3d-media">
+              <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80" alt="Filosofia da Tecnologia" class="card-3d-img" loading="lazy">
+            </div>
+          </div>
+          <div>
+            <div class="school-card-header">
+              <span class="school-code-badge">FACULDADE 04 // FL-CG</span>
+              <span class="school-duration">Bacharelado • 4 Anos</span>
+            </div>
+            <h3 class="school-title">Filosofia da Tecnologia, Linguagem & Cognição</h3>
+            <p class="school-ementa-summary">
+              Toda tecnologia repousa sobre uma ontologia oculta. Formamos pensadores para liderar os debates de soberania epistêmica, linguagem e o futuro da consciência.
+            </p>
+            <div class="school-topics-list">
+              <span class="topic-pill">Epistemologia Crítica</span>
+              <span class="topic-pill">Filosofia da Mente</span>
+              <span class="topic-pill">Soberania de Dados</span>
+              <span class="topic-pill">Bioética da IA</span>
+            </div>
+            <div class="school-card-actions">
+              <button class="toggle-ementa-btn" data-magnetic>
+                VER EMENTA DETALHADA <span>+</span>
+              </button>
+              <button class="btn-header-cta btn-open-admissions" data-magnetic>
+                INSCREVER-SE
+              </button>
+            </div>
+          </div>
+          <div class="school-extended-details">
+            <div class="semestre-block">
+              <h4>Genealogia do Pensamento (Ano 1)</h4>
+              <ul>
+                <li>Filosofia Clássica & Lógica Formal</li>
+                <li>Teorias da Linguagem e Semiótica</li>
+                <li>Crítica da Razão Tecnológica</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Fronteiras Cognitivas (Anos 2-3)</h4>
+              <ul>
+                <li>Problema Difícil da Consciência</li>
+                <li>Economia Política das Plataformas Globais</li>
+                <li>Direito e Governança de Algoritmos</li>
+              </ul>
+            </div>
+            <div class="semestre-block">
+              <h4>Tratado Filosófico (Ano 4)</h4>
+              <ul>
+                <li>Redação de Tratado Autoral Inédito</li>
+                <li>Colóquio em Centro Internacional Parceiro</li>
+                <li>Publicação pela Editora Meridiano</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- O LABORATÓRIO (MERIDIANO LAB) COM CARDS 3D -->
+    <section class="section-lab" id="laboratorio">
+      <div class="section-title-lockup">
+        <div>
+          <div class="section-tag">03 // PESQUISA APLICADA</div>
+          <h2 class="section-heading-h2">Hipóteses testadas em escala real.</h2>
+        </div>
+      </div>
+
+      <div class="lab-grid">
+        <div class="lab-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=900&q=80" alt="Projeto Noema BCI" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="lab-status-badge">● HARDWARE LIVRE EM TESTE</div>
+            <h3 class="lab-title">Projeto Noema [BCI]</h3>
+            <p class="lab-desc">
+              Interface cérebro-computador não invasiva para tradução de intenções espaciais e modelagem vetorial direta via ondas cerebrais.
+            </p>
+          </div>
+          <div class="lab-footer">
+            <span>DRA. HELENA VALENTE</span>
+            <span>GITHUB / OPEN-NOEMA</span>
+          </div>
+        </div>
+
+        <div class="lab-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80" alt="Protocolo Gaia-04" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="lab-status-badge">● 1.400 SENSORES ATIVOS</div>
+            <h3 class="lab-title">Protocolo Gaia-04</h3>
+            <p class="lab-desc">
+              Malha distribuída de sensores solares autônomos monitorando em tempo real ciclos de nitrogênio e contaminação em bacias urbanas.
+            </p>
+          </div>
+          <div class="lab-footer">
+            <span>ARQ. MARIANA THORNE</span>
+            <span>API ABERTA / JSON-STREAM</span>
+          </div>
+        </div>
+
+        <div class="lab-card tilt-3d-wrap" data-tilt-3d data-cursor="card">
+          <div class="card-3d-media">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Corpus Brasilis" class="card-3d-img" loading="lazy">
+          </div>
+          <div class="pop-z-35">
+            <div class="lab-status-badge">● CORPUS FONÉTICO ABERTO</div>
+            <h3 class="lab-title">Corpus Brasilis</h3>
+            <p class="lab-desc">
+              Modelo acústico fundacional concebido para documentação fonética e preservação morfológica de 142 línguas originárias.
+            </p>
+          </div>
+          <div class="lab-footer">
+            <span>DR. BENTO ALENCASTRO</span>
+            <span>DATASET: 480K HORAS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPO DOCENTE (FELLOWS) -->
+    <section class="section-faculty" id="docentes">
+      <div class="section-title-lockup">
+        <div>
+          <div class="section-tag">04 // FELLOWS & TITULARES</div>
+          <h2 class="section-heading-h2">Mestres por produção de fronteira.</h2>
+        </div>
+      </div>
+
+      <div class="faculty-table">
+        <div class="faculty-row" data-magnetic>
+          <span class="faculty-id">TITULAR // 01</span>
+          <span class="faculty-name">Dra. Helena Valente</span>
+          <span class="faculty-chair">Cátedra de Modelos Fundacionais & Álgebra</span>
+          <span class="faculty-credentials">PhD Stanford • ex-DeepMind</span>
+        </div>
+
+        <div class="faculty-row" data-magnetic>
+          <span class="faculty-id">TITULAR // 02</span>
+          <span class="faculty-name">Prof. Arthur Salles</span>
+          <span class="faculty-chair">Cátedra de Design Especulativo & Mídia</span>
+          <span class="faculty-credentials">Bienal de Milão • Awwwards Jury</span>
+        </div>
+
+        <div class="faculty-row" data-magnetic>
+          <span class="faculty-id">TITULAR // 03</span>
+          <span class="faculty-name">Arq. Mariana Thorne</span>
+          <span class="faculty-chair">Cátedra de Biomateriais & Urbanismo Vivo</span>
+          <span class="faculty-credentials">Pavilhão Brasil Veneza • ETH Zürich</span>
+        </div>
+
+        <div class="faculty-row" data-magnetic>
+          <span class="faculty-id">TITULAR // 04</span>
+          <span class="faculty-name">Dr. Bento Alencastro</span>
+          <span class="faculty-chair">Cátedra de Filosofia da Tecnologia & Linguagem</span>
+          <span class="faculty-credentials">Doutor Sorbonne • Perito UNESCO</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSÕES & CANDIDATURA -->
+    <section class="section-admissions" id="admissoes">
+      <div class="section-title-lockup">
+        <div>
+          <div class="section-tag">05 // PROCESSO SELETIVO 2027</div>
+          <h2 class="section-heading-h2">Não buscamos conformidade. Buscamos obsessão lúcida.</h2>
+        </div>
+      </div>
+
+      <div class="admissions-timeline">
+        <div class="timeline-step-card">
+          <div class="step-num">FASE 01 // AUTORIA</div>
+          <h3 class="step-title">Dossiê Crítico & Portfólio</h3>
+          <p class="step-desc">
+            Ensaio autoral sobre contradição tecnológica atual, projetos anteriores e resolução de problema aberto.
+          </p>
+        </div>
+
+        <div class="timeline-step-card">
+          <div class="step-num">FASE 02 // COLÓQUIO</div>
+          <h3 class="step-title">Imersão de 48 Horas</h3>
+          <p class="step-desc">
+            Desenvolvimento colaborativo sob mentoria direta dos professores titulares do Instituto.
+          </p>
+        </div>
+
+        <div class="timeline-step-card">
+          <div class="step-num">FASE 03 // SABATINA</div>
+          <h3 class="step-title">Arguição Diante da Banca</h3>
+          <p class="step-desc">
+            Defesa oral e individual de 45 minutos diante de três pesquisadores titulares.
+          </p>
+        </div>
+      </div>
+
+      <div class="admissions-banner-cta">
+        <div>
+          <h3 class="banner-title">Ciclo Outono 2027 Aberto</h3>
+          <p class="banner-sub">28 vagas estritas por cátedra. 42% com bolsa de mérito integral independente.</p>
+        </div>
+        <button class="btn-primary-hero btn-open-admissions" data-magnetic>
+          CANDIDATURA ONLINE <span>→</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ INSTITUCIONAL (CONSOLE MONUMENTAL) -->
+  <footer class="site-footer">
+    <div class="footer-monument-title" aria-hidden="true">
+      INSTITUTO MERIDIANO
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Campus & Sede Central</div>
+        <div class="footer-col-content">
+          Alameda das Camélias, 800<br>
+          Parque Tecnológico — São Paulo, SP<br>
+          CEP 05508-010 • Brasil<br><br>
+          <span style="font-family: var(--font-mono); color: var(--accent-phosphor);">
+            COORD: -23.5505 S / -46.6333 W
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Faculdades & Cátedras</div>
+        <div class="footer-col-content">
+          <p><a href="#escolas">Computação Criativa & IA</a></p>
+          <p><a href="#escolas">Design Estratégico</a></p>
+          <p><a href="#escolas">Arquitetura Viva</a></p>
+          <p><a href="#escolas">Filosofia da Tecnologia</a></p>
+          <p><a href="#escolas">Doutorado Interdisciplinar</a></p>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Governança & Arquivo</div>
+        <div class="footer-col-content">
+          <p><a href="#">Regimento Acadêmico (PDF)</a></p>
+          <p><a href="#">Relatório do Fundo Patrimonial</a></p>
+          <p><a href="#">Código de Integridade Aberta</a></p>
+          <p><a href="#">Editora Meridiano (Journal)</a></p>
+          <p><a href="#">Licenças de Código Livre</a></p>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Comissão de Seleção</div>
+        <div class="footer-col-content">
+          <p>Dúvidas sobre o processo seletivo:</p>
+          <p style="color: #ffffff; font-weight: 600; margin: 4px 0;">admissoes@meridiano.edu.br</p>
+          <button class="btn-secondary-hero btn-copy-clipboard" data-copy="admissoes@meridiano.edu.br" data-magnetic style="padding: 6px 12px; margin-top: 8px; font-size: 11px;">
+            COPIAR E-MAIL OFICIAL
+          </button>
+          <p style="margin-top: 14px; font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">
+            PGP KEY: 4A9F C302 91E8 B82D 108F
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        © 2027 INSTITUTO MERIDIANO DE ENSINO SUPERIOR. TODOS OS DIREITOS RESERVADOS.
+      </div>
+
+      <button id="manual-esc-trigger" class="esc-prompt-btn" data-magnetic>
+        <span class="pulse-indicator"></span>
+        <span>PRESSIONE ESC PARA O MODO CARTOGRÁFICO (?)</span>
+      </button>
+    </div>
+  </footer>
+
+  <!-- TOPOLOGICAL MATRIX HUD OVERLAY (MODO ESC) -->
+  <div id="matrix-overlay" role="dialog" aria-modal="true" aria-label="Matriz Topológica do Instituto">
+    <div class="matrix-hud-top">
+      <div class="matrix-hud-title">
+        ● MODO CARTOGRÁFICO ATIVADO // MATRIZ EPISTÊMICA INTERDISCIPLINAR
+      </div>
+      <div class="matrix-hud-stats">
+        4 CÁTEDRAS ÂNCORA • 9 NÓS LAB • 16 VETORES ATIVOS • ARRASTE OS NÓS
+      </div>
+      <button id="matrix-close-btn" class="matrix-hud-close" data-magnetic>
+        [ESC] RESTAURAR INTERFACE
+      </button>
+    </div>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Painel de Inspeção Dinâmico do Nó -->
+    <div id="matrix-detail-panel">
+      <div class="matrix-detail-code">ID: CC-AI // HUB PRINCIPAL</div>
+      <div class="matrix-detail-title">Computação Criativa & IA</div>
+      <div class="matrix-detail-desc">
+        Investigação da máquina como extensão direta da cognição humana e sistemas distribuídos de inteligência autônoma.
+      </div>
+      <div class="matrix-detail-meta">
+        Cátedra: Dra. Helena Valente (ex-DeepMind)
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE ADMISSÃO (CANDIDATURA 2027) -->
+  <div id="admissions-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="admissions-modal-title">
+    <div class="modal-window">
+      <button id="modal-close-btn" class="modal-close-btn" data-magnetic aria-label="Fechar janela">[FECHAR ×]</button>
+
+      <form id="admissions-form">
+        <h3 id="admissions-modal-title" class="modal-title">Candidatura Ciclo 2027</h3>
+        <p class="modal-sub">Inicie seu processo diante da banca do Instituto Meridiano.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="cand-name">Nome Completo</label>
+          <input type="text" id="cand-name" class="form-input" required placeholder="Ex.: Sofia Andrade Brandão">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cand-email">E-mail</label>
+          <input type="email" id="cand-email" class="form-input" required placeholder="Ex.: sofia@dominio.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cand-school">Cátedra de Interesse</label>
+          <select id="cand-school" class="form-select" required>
+            <option value="CC-AI">Computação Criativa & Inteligência Sintética</option>
+            <option value="DS-FE">Design Estratégico & Futuros Especulativos</option>
+            <option value="AR-EV">Arquitetura, Urbanismo & Ecologias Vivas</option>
+            <option value="FL-CG">Filosofia da Tecnologia, Linguagem & Cognição</option>
+            <option value="DOC-INT">Doutorado Interdisciplinar (Pesquisa Pura)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="cand-proposal">Linha de Pesquisa / Proposta</label>
+          <textarea id="cand-proposal" class="form-textarea" rows="3" required placeholder="Descreva sucintamente o problema que você pretende investigar..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-modal" data-magnetic>
+          GERAR PROTOCOLO & ENVIAR
+        </button>
+      </form>
+
+      <!-- Estado de Sucesso com Protocolo Criptográfico -->
+      <div id="admissions-success" style="display: none;">
+        <h3 class="modal-title" style="color: var(--accent-phosphor);">Candidatura Recebida</h3>
+        <p class="modal-sub">
+          Dossiê registrado na base acadêmica sob chave institucional criptográfica única.
+        </p>
+
+        <div class="success-token-box">
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-bottom: 6px;">
+            PROTOCOLO INSTITUCIONAL:
+          </div>
+          <div id="token-generated" class="token-code">IM-2027-CCAI-A49F</div>
+          <div id="token-name" style="margin-top: 8px; font-size: 13px; color: var(--text-secondary);">
+            Candidato registrado
+          </div>
+        </div>
+
+        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.5rem;">
+          Instruções de envio dos materiais complementares para a Fase 01 foram enviadas para seu e-mail. Guarde este código.
+        </p>
+
+        <button id="btn-reset-form" class="btn-secondary-hero" style="width: 100%; text-align: center;">
+          CONCLUÍDO // FECHAR
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts dos Módulos -->
+  <script src="js/audio.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/tilt-3d.js"></script>
+  <script src="js/canvas-matrix.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

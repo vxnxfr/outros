@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-11-03T19:26:07.236Z",
+  "results": [
+    {
+      "id": "TC-01",
+      "name": "Carregamento & Conclusão do Preloader",
+      "result": "PASSOU",
+      "evidence": "Preloader concluído em 1384ms",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-02",
+      "name": "Zero Erros de Console e Zero Falhas de Rede",
+      "result": "PASSOU",
+      "evidence": "Erros: 0, Falhas de Rede: 0",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-03",
+      "name": "Relógio Institucional em Tempo Real (SP UTC-3)",
+      "result": "PASSOU",
+      "evidence": "Leitura 1: \"SÃO PAULO 16:26:00 BRT (UTC-3)\" -> Leitura 2: \"SÃO PAULO 16:26:01 BRT (UTC-3)\"",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-04",
+      "name": "Integridade de Âncoras e Seções Principais",
+      "result": "PASSOU",
+      "evidence": "5/5 âncoras validadas: #espacos, #escolas, #laboratorio, #docentes, #admissoes",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-05",
+      "name": "Filtro Dinâmico de Cátedras & Acordeão de Ementa",
+      "result": "PASSOU",
+      "evidence": "Filtro CC-AI filtrou para 1 card; Acordeão expandiu com sucesso (true)",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-06",
+      "name": "Modo Cartográfico (ESC Key) - Estresse de Alternância",
+      "result": "PASSOU",
+      "evidence": "Canvas ativo e redimensionado; Overlay responde e fecha perfeitamente",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-07",
+      "name": "Validação de Formulário & Geração de Token",
+      "result": "PASSOU",
+      "evidence": "Protocolo gerado: \"IM-2027-CC-AI-2FBF\" exibido no estado de confirmação",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-08",
+      "name": "Estresse de Rolagem (Inércia & Recuperação)",
+      "result": "PASSOU",
+      "evidence": "50 ciclos de scroll veloz executados sem travamento ou estouro de pilha",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-09",
+      "name": "Zero Overflow Horizontal em 7 Viewports (320px a 2560px)",
+      "result": "PASSOU",
+      "evidence": "scrollWidth <= clientWidth em todas as resoluções",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-10",
+      "name": "Auditoria de Acessibilidade axe-core (WCAG AA)",
+      "result": "PASSOU",
+      "evidence": "Violações Críticas/Sérias: 0, Moderadas/Menores: 2",
+      "severity": "NENHUMA"
+    },
+    {
+      "id": "TC-11",
+      "name": "Metadados Técnicos, Favicon & Idioma pt-BR",
+      "result": "PASSOU",
+      "evidence": "Title: \"Instituto Meridiano // Ensino Superior, Pesquisa Pura & Pensamento Contemporâneo\" | lang: pt-BR | metaDesc: presente",
+      "severity": "NENHUMA"
+    }
+  ],
+  "bugs": [],
+  "verdict": "APROVADO"
+}

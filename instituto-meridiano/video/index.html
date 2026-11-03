@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download de Vídeos // Instituto Meridiano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #070708;
+      color: #ededed;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 3rem 1.5rem 5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      max-width: 1200px;
+      width: 100%;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #00ff9d;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .back-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #9ba0ad;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .back-link:hover { color: #fff; border-color: #00ff9d; }
+    
+    .grid {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+    .video-card {
+      background: #0e0f14;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .video-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .video-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #9ba0ad;
+      margin-bottom: 1.25rem;
+    }
+    video {
+      width: 100%;
+      border-radius: 4px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 1.5rem;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      background-color: #00ff9d;
+      color: #070708;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+    .btn-download:hover {
+      background-color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 255, 157, 0.25);
+    }
+    .other-cuts-section {
+      max-width: 1200px;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+    }
+    .cuts-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .cuts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .cut-box {
+      background: #12131a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.25rem;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cut-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+    .cut-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #9ba0ad;
+      margin-bottom: 1rem;
+    }
+    .btn-cut {
+      display: inline-block;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #ededed;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-cut:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #00ff9d;
+      color: #00ff9d;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .cuts-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 550px) {
+      .cuts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div>
+      <div class="tag">CENTRAL DE MÍDIA INSTITUCIONAL // DEMONSTRAÇÃO COMPLETA & CALMA</div>
+      <h1>Vídeo Tour Detalhado do Site</h1>
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #00ff9d; margin-top: 0.5rem;">
+        ⚡ Sem narração &bull; Sem música &bull; Ritmo calmo, legível e fluido com candidatura de teste completa
+      </p>
+    </div>
+    <a href="/" class="back-link">← VOLTAR AO SITE</a>
+  </div>
+
+  <div class="grid">
+    <!-- Vídeo Horizontal 16:9 -->
+    <div class="video-card">
+      <div>
+        <h2 class="video-card-title">Demonstração Completa e Calma (16:9 Full HD)</h2>
+        <div class="video-meta">1920x1080 • DURAÇÃO: 01:27 MIN • TAMANHO: 25.3 MB • SEM ÁUDIO (SEM NARRAÇÃO / SEM MÚSICA) • MP4 H.264</div>
+        <video controls poster="instituto-meridiano-thumb.png">
+          <source src="instituto-meridiano-demo-16x9.mp4" type="video/mp4">
+          <source src="instituto-meridiano-master.mp4" type="video/mp4">
+          Seu navegador não suporta reprodução direta de vídeo.
+        </video>
+        <ul style="font-size: 12px; color: #9ba0ad; line-height: 1.6; margin-bottom: 1.25rem; padding-left: 1.2rem;">
+          <li>Navegação do Header & Relógio ao vivo do campus (SP UTC-3)</li>
+          <li>Efeito 3D Tilt tranquilo com perspectiva, luz e profundidade Z nos cards</li>
+          <li>Filtros interativos das Cátedras & Leitura da Ementa Curricular (8 semestres)</li>
+          <li>Easter Egg cartográfico (Tecla ESC) com drag-and-drop de nós em tempo real</li>
+          <li>Laboratórios do Meridiano Lab e Corpo Docente Titular</li>
+          <li><strong>Candidatura de Teste Completa:</strong> preenchimento realista de dados e geração do <strong>Protocolo Criptográfico Oficial</strong> (exibição legível por 6 segundos)</li>
+          <li>Toast animado de cópia de e-mail & Encerramento monumental</li>
+        </ul>
+      </div>
+      <a href="instituto-meridiano-demo-16x9.mp4" download="instituto-meridiano-demo-16x9.mp4" class="btn-download">
+        ⬇ BAIXAR VÍDEO 16:9 FULL HD (MP4)
+      </a>
+    </div>
+
+    <!-- Vídeo Vertical 9:16 (Reels/Stories) -->
+    <div class="video-card">
+      <div>
+        <h2 class="video-card-title">Versão Mobile / Reels (9:16 Vertical)</h2>
+        <div class="video-meta">1080x1920 • DURAÇÃO: 01:27 MIN • TAMANHO: 17.9 MB • SEM ÁUDIO (SEM NARRAÇÃO / SEM MÚSICA) • MP4 H.264</div>
+        <video controls poster="instituto-meridiano-thumb.png" style="max-height: 480px; object-fit: contain;">
+          <source src="instituto-meridiano-demo-9x16.mp4" type="video/mp4">
+          <source src="instituto-meridiano-reels-45s.mp4" type="video/mp4">
+          Seu navegador não suporta reprodução direta de vídeo.
+        </video>
+        <p style="font-size: 12px; color: #9ba0ad; margin-bottom: 1.25rem; line-height: 1.6;">
+          Versão vertical completa com foco central nos cards 3D, filtros acadêmicos, matriz ESC e processo de candidatura passo a passo.
+        </p>
+      </div>
+      <a href="instituto-meridiano-demo-9x16.mp4" download="instituto-meridiano-demo-9x16.mp4" class="btn-download">
+        ⬇ BAIXAR VÍDEO 9:16 REELS (MP4)
+      </a>
+    </div>
+  </div>
+
+  <!-- Outros Cortes e Materiais Complementares -->
+  <div class="other-cuts-section">
+    <h3 class="cuts-title">Materiais Complementares & Cortes Especiais</h3>
+    <div class="cuts-grid">
+      <div class="cut-box">
+        <div>
+          <div class="cut-name">Corte de 60s</div>
+          <div class="cut-meta">16:9 • 1080p • 6.5 MB</div>
+        </div>
+        <a href="instituto-meridiano-60s.mp4" download="instituto-meridiano-60s.mp4" class="btn-cut">BAIXAR (60S)</a>
+      </div>
+
+      <div class="cut-box">
+        <div>
+          <div class="cut-name">Corte de 30s</div>
+          <div class="cut-meta">16:9 • 1080p • 3.3 MB</div>
+        </div>
+        <a href="instituto-meridiano-30s.mp4" download="instituto-meridiano-30s.mp4" class="btn-cut">BAIXAR (30S)</a>
+      </div>
+
+      <div class="cut-box">
+        <div>
+          <div class="cut-name">Legendas Sincronizadas</div>
+          <div class="cut-meta">Formato .SRT • pt-BR</div>
+        </div>
+        <a href="instituto-meridiano-legendas.srt" download="instituto-meridiano-legendas.srt" class="btn-cut">BAIXAR (.SRT)</a>
+      </div>
+
+      <div class="cut-box">
+        <div>
+          <div class="cut-name">Thumbnail Oficial</div>
+          <div class="cut-meta">1920x1080 • PNG • 511 KB</div>
+        </div>
+        <a href="instituto-meridiano-thumb.png" download="instituto-meridiano-thumb.png" class="btn-cut">BAIXAR (PNG)</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Temporary browser profiles & lock files
+.tmp_*
+edge-*-profile*
+temp-profile*
+tests/edge-*
+tests/temp-*
+
+# Intermediate video frames & scratch audio
+video/*_frames/
+video/frames/
+video/audio/
+
+# Logs & temp files
+*.log
+*.tmp

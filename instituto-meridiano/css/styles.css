@@ -1,0 +1,1610 @@
+/* ==========================================================================
+   INSTITUTO MERIDIANO - MASTER STYLESHEET (V2 - 3D CINEMATIC & FOCUSED COPY)
+   Design System: Brutalismo Monolítico Editorial Dark + 3D Perspective Tilt
+   Fontes: Syne, Plus Jakarta Sans, JetBrains Mono
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variáveis & Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --bg-deep: #070708;
+  --bg-surface: #0d0e12;
+  --bg-surface-elevated: #14151b;
+  --bg-card-hover: #1c1d25;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-active: rgba(255, 255, 255, 0.45);
+
+  --text-primary: #ededed;
+  --text-secondary: #c2c5d1;
+  --text-muted: #9ba0ad;
+  --text-inverse: #070708;
+
+  --accent-phosphor: #00ff9d;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-cyan: #06b6d4;
+  --accent-rose: #ec4899;
+
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  
+  --max-width: 1680px;
+  --pad-x: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Estrutura Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Textura Orgânica Micro-pontilhada */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background-color: var(--accent-phosphor);
+  color: var(--bg-deep);
+}
+
+/* --------------------------------------------------------------------------
+   3. Custom Cursor Dual-layer
+   -------------------------------------------------------------------------- */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease, transform 0.05s linear;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  margin-top: -19px;
+  margin-left: -19px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease, opacity 0.2s ease;
+}
+
+.cursor-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring.has-label {
+  border-color: var(--accent-phosphor);
+  background-color: rgba(0, 255, 157, 0.12);
+}
+
+.cursor-ring.has-label .cursor-label {
+  opacity: 1;
+}
+
+.cursor-ring.link-mode {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.touch-device .cursor-dot,
+.touch-device .cursor-ring {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. EFEITO 3D PREMIUM & TILT SYSTEM (Instagram Reel / Awwwards Standard)
+   -------------------------------------------------------------------------- */
+.tilt-3d-wrap {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+[data-tilt-3d] {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: 4px;
+  transition: box-shadow 0.4s ease;
+}
+
+[data-tilt-3d]:hover {
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8),
+              0 0 30px -5px rgba(0, 255, 157, 0.15);
+}
+
+.card-3d-media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid var(--border-medium);
+  background-color: #0c0d12;
+  transform-style: preserve-3d;
+}
+
+.card-3d-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.7s var(--ease-out-expo), filter 0.7s ease;
+  filter: contrast(1.04) brightness(0.92);
+}
+
+[data-tilt-3d]:hover .card-3d-img {
+  transform: scale(1.08);
+  filter: contrast(1.08) brightness(1.02);
+}
+
+/* Reflexo Especular 3D (Dynamic Glare Sheen) */
+.card-3d-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  mix-blend-mode: overlay;
+  z-index: 4;
+}
+
+/* Borda Holográfica e Linha de Luz */
+.card-3d-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 60%, rgba(0, 255, 157, 0.15) 100%) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Elementos com Efeito Pop-out 3D no Eixo Z */
+.pop-z-35 {
+  transform: translateZ(35px);
+  transform-style: preserve-3d;
+}
+
+.pop-z-50 {
+  transform: translateZ(50px);
+  transform-style: preserve-3d;
+}
+
+.pop-z-20 {
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
+}
+
+/* --------------------------------------------------------------------------
+   5. Preloader Minimalista
+   -------------------------------------------------------------------------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #050506;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--pad-x);
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
+}
+
+#preloader.loaded {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.preloader-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.preloader-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+}
+
+#preloader-percent {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 13rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--text-primary);
+}
+
+.preloader-footer {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--accent-phosphor);
+}
+
+/* --------------------------------------------------------------------------
+   6. Cabeçalho & Navegação Fixa
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+  padding: 1.25rem var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(7, 7, 8, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--border-subtle);
+  padding: 0.85rem var(--pad-x);
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brand-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  color: var(--text-muted);
+}
+
+.header-center-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.pulse-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-phosphor);
+  box-shadow: 0 0 8px var(--accent-phosphor);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.85); }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sound-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover,
+.sound-toggle-btn.active {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.btn-header-cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 8px 16px;
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-header-cta:hover {
+  background-color: var(--accent-phosphor);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   7. Seção Hero com Card Visual 3D
+   -------------------------------------------------------------------------- */
+.section-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(7.5rem, 12vw, 10.5rem) var(--pad-x) 4rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-meta-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--accent-phosphor);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-display-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.2vw, 5.6rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin-bottom: 1.75rem;
+}
+
+.hero-display-title span.italic-accent {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.hero-lead-text {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin-bottom: 2.25rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-primary-hero {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 14px 24px;
+  background-color: var(--text-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.25s var(--ease-out-expo);
+}
+
+.btn-primary-hero:hover {
+  background-color: var(--accent-phosphor);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 255, 157, 0.2);
+}
+
+.btn-secondary-hero {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 13px 20px;
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary-hero:hover {
+  border-color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Card Visual 3D no Hero */
+.hero-3d-visual {
+  position: relative;
+}
+
+.hero-card-3d {
+  background-color: var(--bg-surface);
+  padding: 1.25rem;
+  border: 1px solid var(--border-medium);
+}
+
+.hero-card-3d .card-3d-media {
+  height: 480px;
+}
+
+.hero-card-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 6px 10px;
+  background-color: rgba(7, 7, 8, 0.85);
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(8px);
+  border-radius: 2px;
+  color: var(--accent-phosphor);
+  z-index: 6;
+}
+
+.hero-card-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  padding: 1rem 1.25rem;
+  background-color: rgba(7, 7, 8, 0.85);
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(12px);
+  border-radius: 2px;
+  z-index: 6;
+}
+
+.hero-card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.hero-card-sub {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Revelação Animada */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.hero-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   8. Métricas de Rigor (Compactas & Impactantes)
+   -------------------------------------------------------------------------- */
+.section-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.metric-cell {
+  padding: 2.75rem var(--pad-x);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.metric-cell:last-child {
+  border-right: none;
+}
+
+.metric-cell:hover {
+  background-color: var(--bg-surface);
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.metric-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent-phosphor);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.metric-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   9. GALERIA 3D // AMBIENTES DE IMERSÃO & ESTUDO
+   -------------------------------------------------------------------------- */
+.section-study-gallery {
+  padding: clamp(5rem, 7vw, 8rem) var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.study-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.study-space-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.study-space-card .card-3d-media {
+  height: 290px;
+  margin-bottom: 1.25rem;
+}
+
+.study-space-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-phosphor);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.study-space-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+}
+
+.study-space-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   10. As Quatro Escolas com Fotos 3D Integradas
+   -------------------------------------------------------------------------- */
+.section-schools {
+  padding: clamp(5rem, 7vw, 8rem) var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-title-lockup {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--accent-phosphor);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.school-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.school-filter-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+}
+
+.school-filter-btn:hover,
+.school-filter-btn.active {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  background-color: var(--bg-surface-elevated);
+}
+
+.schools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.school-card-3d-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.5rem;
+  align-items: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.school-card-3d-layout:hover {
+  border-color: var(--border-medium);
+  background-color: var(--bg-surface-elevated);
+}
+
+.school-card-3d-layout .card-3d-media {
+  height: 240px;
+}
+
+.school-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.school-code-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 3px 6px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+}
+
+.school-duration {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.school-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.school-ementa-summary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 900px;
+  margin-bottom: 1.25rem;
+}
+
+.school-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.topic-pill {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 3px 8px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  color: var(--text-primary);
+}
+
+.school-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.toggle-ementa-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent-phosphor);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Detalhes Expandidos da Ementa */
+.school-extended-details {
+  display: none;
+  grid-column: 1 / -1;
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.school-extended-details.expanded {
+  display: grid;
+}
+
+.semestre-block h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.semestre-block ul li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+/* --------------------------------------------------------------------------
+   11. O Laboratório com Cards 3D (Meridiano Lab)
+   -------------------------------------------------------------------------- */
+.section-lab {
+  padding: clamp(5rem, 7vw, 8rem) var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.lab-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.lab-card:hover {
+  border-color: var(--accent-emerald);
+}
+
+.lab-card .card-3d-media {
+  height: 220px;
+  margin-bottom: 1.25rem;
+}
+
+.lab-status-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--accent-phosphor);
+  margin-bottom: 0.5rem;
+}
+
+.lab-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.lab-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.lab-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------
+   12. Corpo Docente
+   -------------------------------------------------------------------------- */
+.section-faculty {
+  padding: clamp(5rem, 7vw, 8rem) var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+}
+
+.faculty-table {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.faculty-row {
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.25rem 0;
+  display: grid;
+  grid-template-columns: 0.4fr 1.2fr 1.4fr 1fr;
+  align-items: center;
+  transition: background-color 0.2s ease, padding 0.2s ease;
+}
+
+.faculty-row:hover {
+  background-color: var(--bg-surface-elevated);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.faculty-id {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.faculty-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.faculty-chair {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.faculty-credentials {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent-phosphor);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   13. Admissões
+   -------------------------------------------------------------------------- */
+.section-admissions {
+  padding: clamp(5rem, 7vw, 8rem) var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.admissions-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.timeline-step-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent-phosphor);
+  margin-bottom: 0.75rem;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.admissions-banner-cta {
+  background: linear-gradient(135deg, var(--bg-surface-elevated) 0%, #0d0f14 100%);
+  border: 1px solid var(--border-medium);
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  gap: 2rem;
+}
+
+.banner-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.banner-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   14. Rodapé Monumental
+   -------------------------------------------------------------------------- */
+.site-footer {
+  padding: clamp(5rem, 7vw, 7rem) var(--pad-x) 2.5rem;
+  background-color: #050506;
+}
+
+.footer-monument-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 8.5vw, 9.5rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.05em;
+  color: #828599;
+  margin-bottom: 3.5rem;
+  user-select: none;
+  transition: color 0.5s ease;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.footer-monument-title:hover {
+  color: var(--text-primary);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-col-title {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--accent-phosphor);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.footer-col-content {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.footer-col-content a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.esc-prompt-btn {
+  padding: 6px 12px;
+  border: 1px dashed var(--border-medium);
+  border-radius: 2px;
+  color: var(--accent-phosphor);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.esc-prompt-btn:hover {
+  border-color: var(--accent-phosphor);
+  background-color: rgba(0, 255, 157, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   15. Modal de Admissão
+   -------------------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.modal-close-btn:hover {
+  color: #ffffff;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.modal-sub {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 11px 13px;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--accent-phosphor);
+}
+
+.btn-submit-modal {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--accent-phosphor);
+  color: var(--bg-deep);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-submit-modal:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.success-token-box {
+  background-color: var(--bg-surface-elevated);
+  border: 1px dashed var(--accent-phosphor);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
+.token-code {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--accent-phosphor);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   16. TOPOLOGICAL MATRIX OVERLAY (MODO ESC)
+   -------------------------------------------------------------------------- */
+#matrix-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #050608fa;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out-expo);
+  display: flex;
+  flex-direction: column;
+}
+
+#matrix-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#matrix-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.matrix-hud-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--pad-x);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.matrix-hud-title {
+  color: var(--accent-phosphor);
+  letter-spacing: 0.1em;
+}
+
+.matrix-hud-stats {
+  color: var(--text-muted);
+}
+
+.matrix-hud-close {
+  padding: 6px 12px;
+  border: 1px solid var(--border-medium);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.matrix-hud-close:hover {
+  border-color: var(--accent-phosphor);
+  color: var(--accent-phosphor);
+}
+
+#matrix-detail-panel {
+  position: absolute;
+  bottom: 2rem;
+  left: var(--pad-x);
+  z-index: 2;
+  background-color: rgba(14, 15, 18, 0.9);
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--accent-phosphor);
+  padding: 1.25rem;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+#matrix-detail-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.matrix-detail-code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--accent-phosphor);
+  margin-bottom: 0.25rem;
+}
+
+.matrix-detail-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.matrix-detail-desc {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+}
+
+.matrix-detail-meta {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   17. Toast Notifications
+   -------------------------------------------------------------------------- */
+#toast-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9900;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast-notification {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-left: 3px solid var(--accent-phosphor);
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-notification.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.toast-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-phosphor);
+}
+
+/* --------------------------------------------------------------------------
+   18. Responsividade Mobile & Tablet
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .section-hero {
+    grid-template-columns: 1fr;
+    padding-top: 8rem;
+  }
+  .hero-card-3d .card-3d-media {
+    height: 360px;
+  }
+  .section-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .metric-cell:nth-child(2) {
+    border-right: none;
+  }
+  .metric-cell {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .study-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .school-card-3d-layout {
+    grid-template-columns: 1fr;
+  }
+  .school-card-3d-layout .card-3d-media {
+    height: 220px;
+  }
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+  .admissions-timeline {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .header-center-info {
+    display: none;
+  }
+  .study-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-metrics {
+    grid-template-columns: 1fr;
+  }
+  .metric-cell {
+    border-right: none;
+  }
+  .section-title-lockup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .faculty-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .faculty-credentials {
+    text-align: left;
+  }
+  .school-extended-details.expanded {
+    grid-template-columns: 1fr;
+  }
+  .admissions-banner-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    padding: 0.75rem 1rem;
+  }
+  .brand-name {
+    font-size: 0.95rem;
+  }
+  .brand-badge {
+    display: none;
+  }
+  .sound-toggle-btn {
+    display: none;
+  }
+  .btn-header-cta {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  .hero-meta-tag {
+    flex-wrap: wrap;
+    font-size: 10px;
+    word-break: break-word;
+  }
+  .hero-display-title {
+    font-size: 2.1rem;
+    word-break: break-word;
+  }
+  .hero-lead-text {
+    font-size: 0.95rem;
+  }
+  .hero-card-3d .card-3d-media {
+    height: 240px;
+  }
+  .section-hero {
+    padding-top: 6.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. Acessibilidade WCAG AA & Suporte a Movimento Reduzido
+   -------------------------------------------------------------------------- */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--accent-phosphor);
+  color: var(--bg-deep);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 2px;
+  z-index: 10001;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-phosphor);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-tilt-3d] {
+    transform: none !important;
+  }
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}
